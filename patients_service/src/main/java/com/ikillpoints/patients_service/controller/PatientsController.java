@@ -25,6 +25,13 @@ public class PatientsController {
     private final CreatePatientConsumer createPatientConsumer;
     private final GetAllPatientsConsumer getAllPatientsConsumer;
 
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public String welcomeMessage() {
+        return "Welcome to patient microservice";
+    }
+
+
     @PostMapping("/create-patient")
     @ResponseStatus(HttpStatus.CREATED)
     public PatientResponse createPatient(@RequestBody PatientRequest patientRequest) {
@@ -34,8 +41,6 @@ public class PatientsController {
     @GetMapping("/get-all-patients")
     @ResponseStatus(HttpStatus.OK)
     public List<PatientResponse> getAllPatients() {
-        // Implement logic to fetch a patient from the database
-        // Return the fetched patient
         return getAllPatientsConsumer.getAllPatients();
     }
 

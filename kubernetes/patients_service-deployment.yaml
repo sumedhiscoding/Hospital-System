@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patients-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patients-service
+  template:
+    metadata:
+      labels:
+        app: patients-service
+    spec:
+      containers:
+      - name: patients-service
+        image: patients_service:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATA_MONGODB_URI
+          value: mongodb://mongo:27017/patients_service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: patients-service
+spec:
+  selector:
+    app: patients-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
