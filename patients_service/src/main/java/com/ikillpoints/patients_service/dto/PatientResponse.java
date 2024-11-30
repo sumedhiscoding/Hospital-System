@@ -1,5 +1,7 @@
 package com.ikillpoints.patients_service.dto;
 
+import com.ikillpoints.patients_service.models.enums.BloodGroup;
+
 public record PatientResponse(
         String id,
         String firstName,
@@ -7,6 +9,10 @@ public record PatientResponse(
         String gender,
         String address,
         int age,
-        String contactNumber) {
+        String contactNumber,
+        String email,
+        BloodGroup bloodGroup,
+        String insuranceId,
+        String primaryCarePhysicianId) {
 
 }

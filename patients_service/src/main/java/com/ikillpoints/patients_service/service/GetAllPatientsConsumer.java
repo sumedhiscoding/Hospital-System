@@ -22,13 +22,17 @@ public class GetAllPatientsConsumer {
         return patientsRepo.findAll()
                 .stream()
                 .map(patient -> new PatientResponse(
-                        patient.getId(),
+                        patient.getPatientId(),
                         patient.getFirstName(),
                         patient.getLastName(),
                         patient.getGender(),
                         patient.getAddress(),
                         patient.getAge(),
-                        patient.getContactNumber()))
+                        patient.getContactNumber(),
+                        patient.getEmail(),
+                        patient.getBloodGroup(),
+                        patient.getInsuranceId(),
+                        patient.getPrimaryCarePhysicianId()))
                 .toList();
 
     }

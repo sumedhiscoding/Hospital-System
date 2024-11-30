@@ -25,17 +25,26 @@ public class CreatePatientConsumer {
                 .gender(patientRequest.gender())
                 .address(patientRequest.address())
                 .contactNumber(patientRequest.contactNumber())
+                .email(patientRequest.email())
+                .bloodGroup(patientRequest.bloodGroup())
+                .insuranceId(patientRequest.insuranceId())
+                .primaryCarePhysicianId(patientRequest.primaryCarePhysicianId())
+
                 .build();
         patientsRepo.save(patient);
         log.info("Patient created successfully ");
         return new PatientResponse(
-                patient.getId(),
+                patient.getPatientId(),
                 patient.getFirstName(),
                 patient.getLastName(),
                 patient.getGender(),
                 patient.getAddress(),
                 patient.getAge(),
-                patient.getContactNumber());
+                patient.getContactNumber(),
+                patient.getEmail(),
+                patient.getBloodGroup(),
+                patient.getInsuranceId(),
+                patient.getPrimaryCarePhysicianId());
     }
 
 }
