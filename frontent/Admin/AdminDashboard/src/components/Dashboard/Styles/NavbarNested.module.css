@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+/* Importing a custom font */
+
+
+
+.navbar {
+  height: 100vh;
+  width: 20vw;
+  padding: var(--mantine-spacing-md);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--mantine-color-blue-filled);
+}
+
+.navbarMain {
+  flex: 1;
+}
+
+.header {
+  padding-bottom: var(--mantine-spacing-md);
+  margin-bottom: calc(var(--mantine-spacing-md) * 1.5);
+  border-bottom: 1px solid var(--mantine-color-blue-7);
+  display: flex;
+  justify-content: center;
+}
+
+.appName {
+  background: linear-gradient(45deg, #6a5acd, #00bcd4);
+  /* Gradient background from purple to blue */
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  /* Custom font */
+  font-size: 48px;
+  /* Larger text size */
+  font-weight: 600;
+  /* Bold font */
+  padding: 10px 40px;
+  /* Spacious padding */
+  text-align: center;
+  text-transform: uppercase;
+  /* Uppercase letters */
+  letter-spacing: 2px;
+  /* Increased letter spacing */
+  border-radius: 15px;
+  /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* Soft shadow for depth */
+  position: relative;
+  /* For positioning the pseudo-element */
+  overflow: hidden;
+  /* Hide overflow for a neat look */
+  transition: all 0.3s ease;
+}
+
+.appName:before {
+  content: '';
+  /* Empty content */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: rgba(255, 255, 255, 0.15);
+  /* Light white effect */
+  transform: translate(-50%, -50%) rotate(45deg);
+  /* Diagonal light effect */
+  animation: pulse 2s infinite;
+  /* Animation for the effect */
+}
+
+.appName:hover {
+  transform: translateY(-5px);
+  /* Lift up effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  /* Darker shadow on hover */
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.15;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 0.15;
+  }
+}
+
+
+
+.footer {
+  padding-top: var(--mantine-spacing-md);
+  margin-top: var(--mantine-spacing-md);
+  border-top: 1px solid var(--mantine-color-blue-7);
+}
+
+.version {
+  background-color: var(--mantine-color-blue-7);
+  color: var(--mantine-color-white);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: var(--mantine-font-size-sm);
+  color: var(--mantine-color-white);
+  padding: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
+  border-radius: var(--mantine-radius-sm);
+  font-weight: 500;
+
+  @mixin hover {
+    background-color: var(--mantine-color-blue-7);
+    color: var(--mantine-color-white);
+
+    .linkIcon {
+      color: var(--mantine-color-white);
+    }
+  }
+
+  &[data-active] {
+
+    &,
+    &:hover {
+      box-shadow: var(--mantine-shadow-sm);
+      background-color: var(--mantine-color-white);
+      color: var(--mantine-color-blue-filled);
+
+      .linkIcon {
+        color: var(--mantine-color-blue-filled);
+      }
+    }
+  }
+}
+
+.linkIcon {
+  color: var(--mantine-color-blue-1);
+  margin-right: var(--mantine-spacing-sm);
+  width: 25px;
+  height: 25px;
+}
